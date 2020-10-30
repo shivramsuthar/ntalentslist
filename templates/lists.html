@@ -1,0 +1,8 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>List</h1>
+    {% for list in lists %}
+    <li class="list-group-item"><a href="list/{{list.id}}">{{list.name}}({{list.profession}})</a></li>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>{{list.name}}({{list.profession}})</h1>
+  <small>on {{list.create_date}}</small>
+  <hr>
+  <p>{{list.aboutus | safe}}</p>
+  <hr>
+  <h4>Contact by :{{list.mobile_number}}</h4>
+{% endblock %}

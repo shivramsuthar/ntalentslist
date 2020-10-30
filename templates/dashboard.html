@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Dashboard</h1>
+  <a class="btn btn-success" href="/add_list"> Add list</a>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>name</th>
+      <th>profession</th>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for list in lists %}
+      <tr>
+        <td>{{list.name}}</td>
+        <td>{{list.profession}}</td>
+        <td>{{list.create_date}}</td>
+        <td><a href="edit_list/{{list.id}}" class="btn btn-default pull-right">Edit</a></td>
+        <td>
+          <form action="{{url_for('delete_list', id=list.id)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
